@@ -1,0 +1,31 @@
+import random
+
+choices =( "Foot", "Nuke", "Cockroach")
+rounds=0
+win=0
+tie=0
+while True:
+    user_aided=input('Foot, Nuke or Cockroach? (Quit ends):')
+    computer_aided=random.choice(choices)
+    
+    print('You chose: ',user_aided)
+    print('Computer chose: ', computer_aided)
+    if user_aided=='Nuke' and computer_aided=='Foot':
+        print('You WIN!')
+        win+=1
+    elif user_aided==computer_aided and computer_aided!='Nuke' and user_aided!='Nuke':
+        print('Both LOSE!')
+        tie+=1
+    elif user_aided=='Cockroach' and computer_aided=='Nuke':
+        print('You WIN!')
+        win+=1
+    if (user_aided == "Foot" and computer_aided == "Nuke") or (user_aided == "Cockroach" and \
+                computer_aided == "Foot") or (user_aided == "Nuke" and computer_aided == "Cockroach") or\
+                (user_aided == "Nuke" and computer_aided == "Nuke"):
+            print("You LOSE!")
+            rounds += 1
+    elif user_aided!='Cockroach' and user_aided!='Foot' and  user_aided!='Nuke' and user_aided!='Quit' :
+        print('Incorrect selection.')
+    elif user_aided=='Quit': 
+        print('You played ',win+rounds+tie,'rounds and won ',win,' rounds, playing tie in ',tie,' rounds.')
+        exit()
